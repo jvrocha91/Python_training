@@ -2,25 +2,33 @@ print("=========================================")
 print("Bem vindo ao sistema Mercado+ !")
 print("=========================================")
 
-Cadastro=int(input("Digite uma senha numerica a ser cadastrada:")) 
 
-Acess=int(input("\nDigite sua senha:"))
+
+# Cadastro de senha
+Cadastro=int(input("Digite uma senha numerica a ser cadastrada:")) 
+Acesso=int(input("\nDigite sua senha:"))
 x=0
 itens=0
 
-  
 
-if Acess==Cadastro:
+# Verificação da senha e acesso ao sistema
+if Acesso==Cadastro:
     print("\nAcesso permitido")
 
-    while True:
 
-        menu=int(input("\n\n--------------------\n1-Registar saldo inicial disponivel\n2-Registrar venda\n3-Saldo do dia\n--------------------\n\n"))
+    while True:
         
+        # Menu de opções
+        menu=int(input("\n\n----------------------------\n1-Registar saldo inicial disponivel\n2-Registrar venda\n3-Saldo do dia\n----------------------------\n\n"))
+
+
+        # Registro do saldo inicial
         if menu == 1:
             saldo=float(input("Digite o valor do saldo atual disponivel no caixa:"))
             continue
 
+
+        # Registro de venda
         elif menu == 2:
             x+=1
             valor_total=0
@@ -33,7 +41,7 @@ if Acess==Cadastro:
                 valor_total+=valor_produto
                 itens+=1
 
-                registro=int(input("\nDeseja continuar registro:\n1-SIM\n2-NAO"))
+                registro=int(input("\nDeseja continuar registro:\n1-SIM\n2-NAO\n"))
                 if registro == 1:
                     continue
                 if registro == 2:
@@ -47,10 +55,12 @@ if Acess==Cadastro:
                     print("=======================")
                     break
 
-        elif menu == 3:
-            Acess=int(input("\nDigite sua senha para checar saldo:"))
 
-            if Acess==Cadastro:
+        # Verificação do saldo do dia
+        elif menu == 3:
+            Acesso=int(input("\nDigite sua senha para checar saldo:"))
+
+            if Acesso==Cadastro:
                 print("\nAcesso permitido")
                 print("\n=======================\n")
                 print(f"O numero de vendas realizadas foi de {x}\n")
@@ -65,11 +75,11 @@ if Acess==Cadastro:
                 print("Acesso negado")
                 continue
                 
-            
 
 
+#Mensagem caso a senha de acesso esteja incorreta 
 else:
-    print("Acesso negado") 
+    print("Acesso negado")
     
 
     

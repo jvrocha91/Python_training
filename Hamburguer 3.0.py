@@ -1,11 +1,15 @@
-ultimo=5
+import os
+ultimo=1
 fila=list(range(1, ultimo+1))
 Conta=0
 x=0
 soma=0
 pago=[]
 
-
+#Adicionar cancelamento de pedidos em andamento
+#Funcoes
+#Comentarios
+#Organizacao
 
 cardapio = {
     1: {"item": "Hamburguer", "preco": 20.0},
@@ -19,9 +23,9 @@ cardapio = {
 
 
 
-print("=========================================")
-print("Bem vindo a hamburgueria Burguer do Joao!")
-print("=========================================")
+print("============================================")
+print("Bem vindo a hamburgueria Trem fantasma!")
+print("============================================")
           
 
 Cadastro=int(input("Digite uma senha numerica a ser cadastrada:")) 
@@ -31,7 +35,7 @@ Acess=int(input("\nDigite sua senha:"))
   
 
 if Acess==Cadastro: 
-
+    os.system('cls')
     print("\nAcesso permitido")
 
     while True:
@@ -44,12 +48,15 @@ if Acess==Cadastro:
         
 
         if operacao=="S" or operacao=="s":
+            os.system('cls')
             Acess=int(input("\nDigite sua senha para checar o lucro do dia:"))
 
             if Acess==Cadastro:
 
-                print(f"O lucro do dia foi de {soma} reais")
-                print(f"\nOs atendimento foi(cliente-lucro):{pago}")
+                print(f"O lucro do dia foi de {soma} reais\n'Cliente-Conta'\n")
+                for indice,nome in enumerate(pago):
+                    print(nome)
+                    
                 break
 
             else:
@@ -58,11 +65,13 @@ if Acess==Cadastro:
                     
 
         elif operacao=="F" or operacao=="f":
+            os.system('cls')
             ultimo+=1
             fila.append(ultimo)
             
 
         elif operacao=="A" or operacao=="a":
+            os.system('cls')
             if len(fila) > 0:
                 atendido=fila.pop(0)
                 print(f"\nCliente {atendido} sendo atendido:\n")
@@ -96,11 +105,9 @@ if Acess==Cadastro:
                         else:
                             print("Código inválido, por favor, tente novamente.")    
 
-
                         
                 while True:
-    
-                        confirm=int(input(f"Sua compra tem {x} produto(s)\nDeseja confirmar pedido ?\n\n-Sim\n-Nao\n"))
+                        confirm=int(input(f"Sua compra tem {x} produto(s)\nDeseja confirmar pedido ?\n\n1-Sim\n2-Nao\n"))
                                 
                         if confirm==1:
                             soma+=Conta
@@ -109,15 +116,12 @@ if Acess==Cadastro:
                         if confirm==2:
                             print("\nRealize o pedido novamente")
                             break
-                                
-            
+                                            
                   
                 print(f"\nA conta de cliente {atendido} sera de {Conta} Reais")
                 pago.append(f"{atendido}-{Conta}R$\n")
                 Conta=0
                             
-
-
                 
             else:
                 print("\nFila vazia! Ninguem para atender")
@@ -126,5 +130,4 @@ if Acess==Cadastro:
             print("\nOperacao invalida, digite apenas F,A ou S")
 
 else: 
-
-    print("Acesso negado") 
+    print("Acesso negado")

@@ -1,11 +1,17 @@
 # Tema: Catalogo de filmes
-# O usuario pode encontrar o filme que deseja ao inserir o(s) gênero(s) que procura, 
+
+# Visão Geral do Projeto: O usuario pode encontrar o filme que deseja ao inserir o(s) gênero(s) que procura, 
 # O sistema retorna titulos que possuem essa classificação juntamente com um percentual de correspondência dos gêneros baseado em todos os do filme e aqueles que foram inseridos pelo usuario.
+
+#Como usar: O usuario deve digitar todos os generos que deseja buscar (nomes separados e sem virgula), 
+#O sistema retorna todos os filmes incluidos no dataset que possuem pelo menos um dos generos digitados
+#Caso algum genero inserido seja invalido o sistema requisita ao usuario digitar novamente
 
 #Aluno: João Victor Bezerra Batista Rocha
 #RA: 22020875
 
-#Dataset contendo catalogo de filmes disponiveis
+#Codigo comentado:
+# Dataset contendo catalogo de filmes disponiveis com algumas informações sobre os mesmos armazenadas no dicionario
 filmes = [{'titulo':"Forest Gump",
           "genero":{'romance':1,'comedia':1,'drama':1},'ano':'1994', 'diretor':'Robert Zemeckis','atores':['Tom Hanks', 'Robin Wright'],'descrição':'A man with a low IQ has accomplished great things in his life and been present during significant historic events—in each case, far exceeding what anyone imagined he could do. But despite all he has achieved, his one true love eludes him.'}, 
           
@@ -116,5 +122,4 @@ while True:
         else:
             # Imprime uma mensagem de erro caso algum gênero inserido não seja valido
             print("Gênero(s) inserido(s) inválido(s). Tente novamente.")
-    
 

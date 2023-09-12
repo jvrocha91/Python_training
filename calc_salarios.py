@@ -1,11 +1,12 @@
 def inserir():
-    ht=int(input("Digite o numero de horas trabalhas:"))
+    print("====================================")
+    ht=int(input("\nDigite o numero de horas trabalhadas:"))
     sh=int(input("Digite o salario/hora:"))
     tempoServico=int(input("Digite o tempo de servico(meses):"))
     nFilhos=int(input("Digite o numero de filhos:"))
 
     while True:
-        estadoCivil = input("Digite o estado civil:\nS-Solteiro\nC-Casado\nD-Divorciado/Desquitado\nV-Viuvo").upper()
+        estadoCivil = input("Digite o estado civil:\nS-Solteiro\nC-Casado\nD-Divorciado/Desquitado\nV-Viuvo\n:").upper()
         if estadoCivil == 'S':
             estadoCivil = 'Solteiro'
         elif estadoCivil == 'C':
@@ -75,14 +76,33 @@ def salario(ht, sh, tempoServico, nFilhos, estadoCivil):
 def imprimir_salario(ht, sh, tempoServico, nFilhos, estadoCivil):
     sb, descInss, descIr, sl, abonoServico, abonoFilhoCivil = salario(ht, sh, tempoServico, nFilhos, estadoCivil)
     
+    print("====================================")
     print("Salário Bruto: ", sb)
     print("Desconto INSS: ", descInss)
     print("Desconto IR: ", descIr)
     print("Salário Líquido: ", sl)
     print("Abono Serviço: ", abonoServico)
     print("Abono Filho Civil: ", abonoFilhoCivil)
+    print("====================================")
 
+    while True:
+        resposta = input("Deseja recomeçar? (S/N)").upper()
+        if resposta == 'S':
+            main()
+        elif resposta == 'N':
+            break
+        else:
+            print("Resposta inválida, digite novamente.")
+   
 def main():
+    
+    while True:
+        menu = input("\n========Calculadora de salarios========\n\nBem vindo !\nDigite 'X' para iniciar o calculo:").upper()
+        if menu == "X":
+            break
+        else:
+            continue
+
     ht, sh, tempoServico, nFilhos, estadoCivil = inserir()
     imprimir_salario(ht, sh, tempoServico, nFilhos, estadoCivil)
 

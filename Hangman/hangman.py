@@ -9,7 +9,6 @@ lives=6
 display = ["_" for _ in hang_word]
 print(display)
 
-
 end_game=False
 while not end_game:
     guess = input("Escolha uma letra: ").lower()

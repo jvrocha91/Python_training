@@ -7,6 +7,6 @@ lista_animais = [
     "pinguim", "golfinho", "baleia", "tubarao", "polvo",
     "camarao", "caranguejo", "piranha", "cavalo", "ouriço",
     "macaco", "chimpanze", "gorila", "orangotango", "rato",
-    "morcego", "quati", "tamandua", "preguiça", "capivara",
+    "morcego", "formiga", "tamandua", "preguiça", "capivara",
     "jaguar", "onça", "anta", "arara", "flamingo"
 ]

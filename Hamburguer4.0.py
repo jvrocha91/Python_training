@@ -20,6 +20,14 @@ def exibir_menu():
     print("============================================")
     print("Bem vindo a hamburgueria Trem fantasma!")
     print("============================================")
+    fantasma = """
+         .-.            
+        (o o) boo!
+         |O|  
+         | |
+        '~~~'
+        """
+    print(fantasma)
 
 def adicionar_cliente():
     global ultimo

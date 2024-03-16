@@ -17,13 +17,12 @@ def game():
     cards=0
 
     #Usuario e computador recebem as cartas
-    while cards < 2:
+    for _ in range(2):
         user_cards += [random.choice(baralho)]
         computer_cards += [random.choice(baralho)]
-        cards+=1
-
+        
     final_game=False
-    while final_game != True:
+    while not final_game:
         #Fução que calcula score dos jogadores é chamada
         user_score, computer_score = score(user_cards, computer_cards)
             
@@ -68,10 +67,11 @@ def game():
                 print(f"O computador venceu com {computer_score} contra {user_score} do usuario!")
                 main()
             else:print(f"O usario e computador empataram com {user_score} do usuario e {computer_score} do computador") 
- 
+
+#Função principal e incial do codigo
 def main():
     start=input("Voce quer jogar Blackjack ?\nDigite 's' ou 'n':")
-    if start == "s":
+    if start.lower() == "s":
         os.system('cls' if os.name == 'nt' else 'clear')
         print(logo)
         game()

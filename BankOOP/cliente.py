@@ -7,10 +7,10 @@ class Cliente():
         self.conta = None
 
     def criar_conta(self):
-        print("Criar nova conta:\n")
-        id_conta = int(input("Escolha um id para a conta:\n"))
+        id_conta = int(input("Escolha um id para a conta:"))
         self.conta = Conta(id_conta)
         print("Conta criada com sucesso!")
+        return self.conta
 
     def mostrar_info(self):
         print(f"Nome: {self.nome}\nIdade: {self.idade}")

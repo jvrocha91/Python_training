@@ -3,16 +3,18 @@ from banco import Conta
 
 def main():
     print("Bem vindo ao banco OOP:\n")
+    user = None  # Inicializa o usuário como None
     while True:
-        menu=int(input("'1' para acesar conta,'2' para criar conta:"))
-        if menu == 2 :
-            nome = input("Digite seu nome:")
-            idade = int(input("Digite sua idade:"))
+        menu = int(input("\n'1' para acessar conta, '2' para criar conta, '3' para sair:\n"))
+        if menu == 2:
+            nome = input("Digite seu nome: ")
+            idade = int(input("Digite sua idade: "))
+              # Supondo que o usuário escolha o ID da conta
             user = Cliente(nome, idade)
             user.criar_conta()
         elif menu == 1:
-            if user:
-                menu_user=int(input("'1' para mostrar informacoes da conta,'2' para deposito,'3' para saque,'4'para mostrar saldo: "))
+            if user and user.conta:
+                menu_user = int(input("'1' para mostrar informações da conta, '2' para depósito, '3' para saque, '4' para mostrar saldo: "))
                 if menu_user == 1:
                     user.mostrar_info()
                 elif menu_user == 2:
@@ -22,8 +24,11 @@ def main():
                 elif menu_user == 4:
                     user.conta.mostrar_saldo()
             else:
-                print("Voce ainda nao criou sua conta")
+                print("Você ainda não criou sua conta")
+        elif menu == 3:
+            print("Obrigado por usar o banco OOP.")
+            break
         else:
-            print("Opcao invalida")
+            print("Opção inválida")
 
 main()

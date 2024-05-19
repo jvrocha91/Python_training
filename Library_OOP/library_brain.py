@@ -1,8 +1,8 @@
 class Livro():
-    def __init__(self, titulo, id_livro):
+    def __init__(self, titulo, autor, id_livro):
         self.titulo = titulo
-        self.id_livro = id_livro
         self.autor = autor
+        self.id_livro = id_livro
         self.disponibilidade = True
 
     def emprestar_livro(self):
@@ -41,11 +41,11 @@ class Biblioteca():
         self.lista_livros = []
         self.lista_usuarios = []
 
-    def add_livro(self,titulo, autor,livro_id):
-        if livro_id in self.lista_livros:
+    def add_livro(self,titulo, autor, id_livro):
+        if id_livro in self.lista_livros:
             print("ID ja usado, tente novamente")
         else:
-            novo_livro = Livro(titulo, autor, livro_id)
+            novo_livro = Livro(titulo, autor, id_livro)
             self.lista_livros.append(novo_livro)
             print(f"Livro '{titulo}' adicionado com sucesso!")
 
@@ -53,7 +53,7 @@ class Biblioteca():
         if livro in self.lista_livros:
             self.lista_livros.remove(livro)
 
-    def registar_user(self,nome, user_id):
+    def registrar_user(self,nome, user_id):
         if any(user.id == user_id for user in self.lista_usuarios):
             print("ID já usado, tente novamente.")
         else:
@@ -90,3 +90,31 @@ class Biblioteca():
                 print("Este usuário não emprestou este livro.")
         else:
             print("Livro ou usuário não encontrado.")
+
+def main():
+    # Criar instância da biblioteca
+    biblioteca = Biblioteca()
+
+    # Adicionar livros à biblioteca
+    biblioteca.add_livro("1984", "George Orwell", 1)
+    biblioteca.add_livro("Orgulho e Preconceito", "Jane Austen", 2)
+
+    # Registrar usuários
+    biblioteca.registrar_user("Alice", 100)
+    biblioteca.registrar_user("Bob", 101)
+
+    # Emprestar livros
+    biblioteca.biblioteca_emprestar_livro(1, 100)
+    biblioteca.biblioteca_emprestar_livro(2, 101)
+
+    # Listar livros emprestados por um usuário
+    usuario_alice = next(u for u in biblioteca.lista_usuarios if u.id_usuario == 100)
+    print("Livros emprestados por Alice:", usuario_alice.listar_livros())
+
+    # Devolver livros
+    biblioteca.biblioteca_receber_livro(1, 100)
+    print("Livros disponíveis após devolução por Alice:", usuario_alice.listar_livros())
+
+
+if __name__ == "__main__":
+    main()

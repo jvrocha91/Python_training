@@ -1,0 +1,18 @@
+import cv2 # type: ignore
+
+#captura a camaera do computadorS
+camera = cv2.VideoCapture(0)
+ret, imagem = camera.read()
+camera.release()
+print(ret)
+print(imagem)
+
+cv2.imshow("Aula", imagem)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+print("\nLargura em pixels: ",end="")
+print(imagem.shape[1]) #largura da imagem
+print("Altura em pixels: ",end="")
+print(imagem.shape[0]) #altura da imagem
+print("Quantidade de canais: ",end="")
+print(imagem.shape[2]) #quantidade de canais
